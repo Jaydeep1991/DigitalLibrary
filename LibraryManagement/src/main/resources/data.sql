@@ -4,8 +4,8 @@ INSERT IGNORE  INTO role(role_id,role_name) VALUES
 
 	
 INSERT IGNORE INTO users(user_id,address,email,name,password)VALUES
-	(1,'Bangalore','admin@aroha.co.in','Admin','admin'),
-	(2,'Bangalore','librarian@aroha.co.in','Librarian','librarian');
+	(1,'Bangalore','admin@aroha.co.in','Admin','$2a$10$7sFPuv1oAYlgVQSzzCdQwe5fo28SYUJZ7jsIdJJXtMfccghn7sknq'),
+	(2,'Pune','librarian@aroha.co.in','Librarian','$2a$10$b5Z8YmXJPM25BOcaM0Ls7OylmXVXxEYg7jvcy2iMj2oZ8aIR22/3i');
 	
 INSERT  IGNORE INTO user_roles(user_id,role_id)VALUES
 	(1,1),

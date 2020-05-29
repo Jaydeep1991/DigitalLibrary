@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libraryManagement.payload.SignInRequest;
 import com.libraryManagement.service.UserService;
 
-@RestController
 @CrossOrigin(origins = "*")
+@RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-	
-	private Logger logger=LoggerFactory.getLogger(AuthController.class);
-	
-	@Autowired
-	private UserService userService;
-	
-	@PostMapping("/signin")
-	public ResponseEntity<?> signIn(@RequestBody SignInRequest signInRequest){
-		return ResponseEntity.ok(userService.signIn(signInRequest.getUserNameEmail(), signInRequest.getPassword()));
-	}
+
+    private Logger logger = LoggerFactory.getLogger(AuthController.class);
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/signin")
+    public ResponseEntity<?> signIn(@RequestBody SignInRequest signInRequest) {
+        return ResponseEntity.ok(userService.signIn(signInRequest.getUserNameEmail(), signInRequest.getPassword()));
+    }
 
 }
