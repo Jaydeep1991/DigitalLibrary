@@ -40,9 +40,25 @@ public class BooksController {
         return ResponseEntity.ok(bookService.showAllBooks());
     }
 
-    @PostMapping("/checkDuplicateBookName")
+    // Demo
+    @PostMapping("/dupBook")
     public ResponseEntity<?> checkDuplicateBookName(@RequestParam("bookName") String bookName) {
         return ResponseEntity.ok(bookService.checkDup(bookName));
+    }
+    
+    @PostMapping("/checkDuplicateBookName")
+    public ResponseEntity<?> checkDuplicateBook(String bookName){
+        return ResponseEntity.ok(bookService.dupBook(bookName));
+    }
+    
+    @PostMapping("/deletebook")
+    public ResponseEntity<?>deleteBook(@RequestParam("bookId")Long bookId){
+    	return ResponseEntity.ok(bookService.deleteBook(bookId));
+    }
+    
+    @PostMapping("/editBook")
+    public ResponseEntity<?> editBook(@RequestBody Book book){
+        return ResponseEntity.ok(bookService.updateBookService(book));
     }
 
 }

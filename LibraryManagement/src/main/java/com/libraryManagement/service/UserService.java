@@ -12,7 +12,6 @@ import com.libraryManagement.model.Users;
 import com.libraryManagement.payload.SignInResponse;
 import com.libraryManagement.repository.UserRepository;
 
-
 @Service
 public class UserService {
 
@@ -21,10 +20,10 @@ public class UserService {
 
     @Autowired
     private RoleService roleService;
-    
+
     @Autowired
     private PasswordEncoder passwordEncoder;
-      
+
     private Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public SignInResponse signIn(String email, String password) {
@@ -36,12 +35,12 @@ public class UserService {
             return response;
         }
         Users userObj = user.get();
-        if (email.equals(userObj.getEmail()) && passwordEncoder.matches(password,userObj.getPassword())) {
+        if (email.equals(userObj.getEmail()) && passwordEncoder.matches(password, userObj.getPassword())) {
             Role role = roleService.getRole(userObj.getUserId());
             SignInResponse signResponse = new SignInResponse(HttpStatus.OK.value(), userObj.getName(), role.getRoleName(), "SUCCESS");
             return signResponse;
         }
-        if (email.equals(userObj.getEmail()) && !passwordEncoder.matches(password,userObj.getPassword())) {
+        if (email.equals(userObj.getEmail()) && !passwordEncoder.matches(password, userObj.getPassword())) {
             Role role = roleService.getRole(userObj.getUserId());
             SignInResponse signResponse = new SignInResponse(HttpStatus.NOT_FOUND.value(), "Wrong Password");
             return signResponse;

@@ -7,24 +7,26 @@ import javax.persistence.Id;
 
 @Entity
 public class BookType {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String bookgener;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getBookgener() {
-		return bookgener;
-	}
-	public void setBookgener(String bookgener) {
-		this.bookgener = bookgener;
-	}
-	
-	
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String bookgener;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBookgener() {
+        return bookgener;
+    }
+
+    public void setBookgener(String bookgener) {
+        this.bookgener = bookgener;
+    }
 
 }
